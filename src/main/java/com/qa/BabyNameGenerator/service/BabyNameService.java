@@ -17,13 +17,14 @@ public class BabyNameService implements IBabyNameService {
 	StringBuilder word = new StringBuilder();
 	
 	public String createBabyName(int length) {	
+		word.delete(0, 12);
 		Random random = new Random();
-		int letterIndex = random.nextInt(25);
 		for(int i=0;i<length;i++) {
+			int letterIndex = random.nextInt(25);
 			word.append(letters[letterIndex]);
 		}
 		
 		return repo.createBabyName(word.toString());
-	}
+		}
 
 }
